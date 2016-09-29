@@ -94,7 +94,7 @@
                       <li class="list-group-item"><b>lastname : </b></li>
                       <li class="list-group-item"><b>country : </b></li>
                       <li class="list-group-item"><b>gender : </b></li>
-                      <li class="list-group-item"><b>Subscribed : </b></li>
+                      <li class="list-group-item"><b>subscribed : </b></li>
                     </ul>
                   </ul>
                   
@@ -120,8 +120,6 @@
                   if(elem[i].type=='checkbox'){
                       if(elem[i].checked)
                          input_value = elem[i].value;
-                      else
-                         input_value = "no" ;
                   }
                  else{
                     input_value = elem.namedItem(elem[i].name).value
@@ -136,14 +134,14 @@
      
      // function to retrive form data
      function getFormData(){
-         var theDiv = document.getElementById("formData");
+         var frmData = document.getElementById("formData");
           var data ="";
           var pairs = document.cookie.split(";");
           for (var i=0; i<pairs.length; i++){
             var pair = pairs[i].split("=");
             data+= "<li class='list-group-item'><b>" + pair[0]+ " : </b>"+ pair[1] + "</li>";
           }
-         theDiv.innerHTML = data;
+         frmData.innerHTML = data;
      }
         </script>
     
