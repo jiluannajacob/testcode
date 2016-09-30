@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Javascript-Cookies</title>
+
+    <!-- style  -->
+    <link rel="stylesheet" href="assets/css/style.css">
+        
+  </head>
+  <body>
+    <div class="header">
+          <div class="logo align-left">
+              <a class="logo-text" href="#">Javascript</a>
+          </div>
+          <div class="menu align-left">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="active"><a href="#">Contact</a></li> 
+                <li><a href="#">Blog</a></li> 
+              </ul>
+
+          </div>
+          <div class="menu align-right">
+              <ul>
+                  <li><a href="#">Signup</a></li>
+                  <li><a href="#">Login</a></li>
+              </ul>
+          </div>
+        <div class="clear"></div>
+      </div>
+    
+    <div class="home-container">
+            <div class="align-left col-50">
+            <div class="col-100 text-center"><h3>Contact Form</h3></div>
+            <form name="contactForm" id="contactForm" action="#" >
+                <div class="col-100 ">
+                     <div class="form-group">
+                        <label for="firstname" class="form-label">First Name</label>
+                        <input class="form-input" id="firstname" name="firstname" type="text">
+                    </div>
+                </div>
+                  <div class="col-100 ">
+                     <div class="form-group">
+                        <label for="lastname"  class="form-label">Last Name</label>
+                        <input class="form-input" id="lastname" name="lastname" type="text">
+                    </div>
+                </div>
+                 <div class="col-lg-12 ">
+                <div class="form-group">
+                  <label for="country"  class="form-label">Country</label>
+                  <select class="form-input" id="country" name="country">
+                    <option value="">Please select</option>
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="Other">Not Listed</option>
+                  </select>
+                     </div>
+                  </div>
+                   <div class="col-100 ">
+                     <div class="form-group">
+                         <label for="gender" >Gender</label> 
+                         <label><input type="radio" name="gender" value="male" > Male</label>
+                         <label><input type="radio" name="gender" value="female"> Female</label>
+                    </div>
+                </div>
+                <div class="col-100 ">
+                     <div class="form-group">
+                       <input type="checkbox" name="subscribed" id="subscribed" value="yes" >
+                        <label for="subscribed">Subscribe for newsletter</label> 
+                    </div>
+                </div>
+               
+                 <div class="col-100">
+                     <div class="form-group align-right ">
+                        <button type="button" onClick="saveForm();" class="save-btn">Save</button>
+                      
+                     </div>
+                </div>
+
+            </form>
+            </div>
+              <div class="align-left col-50">
+                  <h3 class="text-center">Saved Details</h3>
+                  <ul class="data-list" id="formData">
+                      <li class="list-item"><span class='list-head'>firstname</span>: </li>
+                      <li class="list-item"><span class='list-head'>lastname</span>: </li>
+                      <li class="list-item"><span class='list-head'>country</span>: </li>
+                      <li class="list-item"><span class='list-head'>gender</span>: </li>
+                      <li class="list-item"><span class='list-head'>subscribed</span>: </li>
+                  </ul>
+                  
+            </div>
+         <div class="clear"></div>
+    </div>
+    <div class="footer"><p>&copy; 2016. All Rights Reserved.</p></div>
+ 
+<script type="text/javascript">
+     
+     //function to set cookie value
+        function setCookie(c_name, value, expiredays) {
+                var expiryDate = new Date(); // get current date
+                expiryDate.setDate(expiryDate.getDate() + expiredays); // set expiry date
+                document.cookie = c_name + "=" + value + ";path=/" + ((expiredays ==null) ? "" : ";expires=" + expiryDate.toGMTString());
+            }
+     
+     // function to save form 
+     function saveForm(){
+         var elem = document.getElementById('contactForm').elements;
+         for(var i=0; i<elem.length; i++){
+             if(elem[i].name){
+                 input_value = ""
+                  if(elem[i].type=='checkbox' ){
+                      if(elem[i].checked)
+                         input_value = elem[i].value;
+                  }
+                 else{
+                    input_value = elem.namedItem(elem[i].name).value
+                 }
+                 setCookie( elem[i].name, input_value , 1);
+
+             }
+         }
+        getFormData();
+
+     }
+     
+     // function to retrive form data
+     function getFormData(){
+         var frmData = document.getElementById("formData");
+          var data ="";
+          var pairs = document.cookie.split(";");
+          for (var i=0; i<pairs.length; i++){
+            var pair = pairs[i].split("=");
+            data+= "<li class='list-item'><span class='list-head'>" + pair[0]+ "</span>: "+ pair[1] + "</li>";
+          }
+         frmData.innerHTML = data;
+     }
+        </script>
+    
+    <!-- jQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+  </body>
+</html>
