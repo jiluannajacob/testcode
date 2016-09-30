@@ -1,0 +1,140 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,300,600);
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'open sans', helvetica, arial, sans;
+    background-color: #e9eaed;
+    margin: 0;
+}
+h3{
+    font-size: 20px;
+    margin: 15px;
+    padding: 0;
+}
+.home-container {
+    padding: 20px 30px 40px 30px;
+    font-size: 14px;
+}
+.header{
+    background: #000;
+    min-height: 50px;
+    padding: 0 30px;
+}
+.align-left{
+    float: left;
+}
+.align-right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+.logo{
+      padding: 14px 25px;
+}
+.logo .logo-text{
+    color: #36ab05;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+.menu ul li{
+    display: inline-block;
+    padding: 14px 10px;
+}
+.menu ul li a{ 
+    color: #fff;
+    text-decoration: none;
+}
+.menu ul li.active a{ 
+    color: #6caf14;
+    font-weight: bold;
+}
+.col-50{
+    width: 50%;
+    padding: 0 15px;
+}
+.text-center{
+    text-align: center;
+}
+.col-100{
+    width: 100%;
+}
+.form-group{
+    padding:  8px;
+}
+.form-group .form-label {
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+    display: block;
+    margin-bottom: 1px;
+}
+.form-group .form-input{
+   width: 100%;
+    height: 35px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0 10px;
+}
+.form-group .radio-inline{
+    font-size: 14px;
+}
+.save-btn{
+    padding: 7px;
+    width: 100px;
+    border: 1px solid #36AB05;
+    background: #6CAF14;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.data-list{
+    padding: 8px;
+    list-style: none;
+    margin: 35px 0 0 0;
+}
+
+.data-list .list-item{
+    margin: 5px 3px;
+    margin: -1px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+}
+.data-list .list-head{
+    font-weight: bold;
+    text-transform: capitalize;
+    min-width: 90px;
+    display: inline-block;
+}
+.footer{
+    position: fixed; 
+    bottom: 0; 
+    width: 100%;
+    color: #000;
+    font-size: 13px;
+    text-align: center;
+    background: #e9eaed;
+}
+.footer p{
+    margin: 0 0 2px 0;
+}
+@media(max-width:768px) {
+    .col-50{
+        width: 100%;
+    }
+  .data-list{
+    margin: 5px 0 0 0;
+  }
+}
