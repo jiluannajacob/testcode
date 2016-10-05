@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React App</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+  </head>
+  <body>
+    
+    <div id="app"></div>
+      
+    <script type="text/babel">
+
+        var Appcomponent = React.createClass({
+            render() {
+                return(
+                    <div>
+                        {this.props.userList.map((result) => (
+                          <SubscribersList key={result.userid} data={result} />
+                        ))}
+                     </div>
+                           
+                );
+            }
+
+        })
+  
+        var SubscribersList = React.createClass({
+            render() {
+                return(
+                    <div>
+                        <ProfileImage userimage={this.props.data.userimage} />
+                        <ProfileDetails username={this.props.data.username} place={this.props.data.place} />
+                    </div>
+                )
+            }
+        })
+
+        var ProfileImage = React.createClass({
+            render(){
+                return(
+                    <div><img src={this.props.userimage} width='70' height='70'/></div>
+                )
+            }
+        })
+
+         var ProfileDetails = React.createClass({
+            render(){
+                return(
+                    <div><b>{this.props.username}</b><br></br>{this.props.place}</div>
+                )
+            }
+        })
+        var userList = [{userid :1, username : "Joan Dylan", place: "Newyork", userimage : 'https://www.solarimpulse.com/img/profile-no-photo.png'}, {userid : 2 , username : "Dylan Edmunds", place: "Atlanta", userimage : 'https://www.solarimpulse.com/img/profile-no-photo.png'}, {userid : 3 , username : "Frank Cornish", place: "Alaska", userimage : 'https://www.solarimpulse.com/img/profile-no-photo.png'}, {userid : 4 , username :  "Alexander Smith", place : "Texas", userimage : 'https://www.solarimpulse.com/img/profile-no-photo.png'}]
+        var props = {};
+        props.userList = userList;
+
+        ReactDOM.render(
+          <Appcomponent {...props} />,
+          document.getElementById('app')  
+        );
+
+    </script>
+  
+  </body>
+</html>
