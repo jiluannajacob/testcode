@@ -61,6 +61,7 @@
                 this.props.editUser(this.refs.cmtbox.value, this.props.index);
             },
             remove : function(){
+                this.setState({editing : false});
                this.props.deleteUser(this.props.index);
             },
             renderTextbox : function(){
@@ -68,6 +69,7 @@
                     <div>
                         <textarea ref="cmtbox" defaultValue={this.props.comment} /><br/>
                         <button type="button" onClick={this.save} style={{background:"#056905", marginRight:"5px", color:"#fff" ,border : "1px solid #056905",padding :"5px"}}>Save</button>
+                        <button type="button" onClick={this.remove} style={{background:"#C70B0B", marginRight:"5px" , color:"#fff" ,border : "1px solid #C70B0B",padding :"5px"}} >Remove</button>
                     </div>
                 )
             },
