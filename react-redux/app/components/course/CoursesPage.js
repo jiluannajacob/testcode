@@ -47,9 +47,7 @@ function mapStateToProps(state, ownProps){
 
 function mapdispatchToProps(dispatch){
     return {
-        createCourse : (course) => dispatch(courseActions.createCourse(course));
-       
-        
+        createCourse : (course) => dispatch(courseActions.createCourse(course))
     }
 }
 
